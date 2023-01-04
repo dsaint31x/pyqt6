@@ -9,7 +9,7 @@ from PyQt6.QtWidgets import (QApplication, QWidget, QLabel,
      QLineEdit, QPushButton, QCheckBox, QMessageBox)
 from PyQt6.QtGui import QFont, QPixmap
 from PyQt6.QtCore import Qt
-from registration import NewUserDialog     
+from register import NewUserDialog     
 
 class LoginWindow(QWidget):
     
