@@ -5,9 +5,12 @@ Featured in "Beginning PyQt - A Hands-on Approach to GUI Programming, 2nd Ed."
 
 # Import necessary modules
 import sys
-from PyQt5.QtWidgets import (QApplication, QWidget, 
+# from PyQt5.QtWidgets import (QApplication, QWidget, 
+#     QLabel, QLineEdit, QPushButton)
+# from PyQt5.QtCore import Qt
+from PyQt6.QtWidgets import (QApplication, QWidget, 
     QLabel, QLineEdit, QPushButton)
-from PyQt5.QtCore import Qt
+from PyQt6.QtCore import Qt
 
 class MainWindow(QWidget): 
 
