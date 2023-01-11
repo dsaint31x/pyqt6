@@ -19,11 +19,11 @@ class MW (QWidget):
     def init_ui(self):
         #self.setMinimumSize(700,400)
         self.setWindowTitle("Ex Input Widgets")
-        self.setup_main_wdw()
+        self.setup_main_wnd()
         self.show()
     # --------------------------------------------
 
-    def setup_main_wdw(self):
+    def setup_main_wnd(self):
 
         top_label = QLabel("입력 widget들")
         top_label.setFont(QFont("Arial", 16))

@@ -13,7 +13,7 @@ class MW (QWidget):
         self.init_ui()
         
     def init_ui(self):
-        self.setWindowTitle("Ex: QCheckbox")
+        self.setWindowTitle("Ex: QCombobox")
         self.setup_main_wnd()
         self.show()
         
@@ -28,7 +28,8 @@ class MW (QWidget):
 
         for idx,c in enumerate(self.items):
             cb.addItem(self.items[idx])
-
+            
+        # activated signal 
         cb.activated.connect(self.on_selected)
         lm.addWidget(cb)
 
