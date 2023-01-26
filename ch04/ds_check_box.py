@@ -50,9 +50,11 @@ class MW (QWidget):
     def ck_click(self, button):
         tmp = ""
         tmp = button.text()
+        print(type(button))
         
         print(tmp)
         self.dp_label.setText(tmp)
+        
     def ck_multiple(self, state):
         if state == Qt.CheckState.Checked:
             self.bg.setExclusive(True)
