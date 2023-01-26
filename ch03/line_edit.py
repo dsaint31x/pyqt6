@@ -10,39 +10,40 @@ import sys
 # from PyQt5.QtCore import Qt
 from PyQt6.QtWidgets import (QApplication, QWidget, 
     QLabel, QLineEdit, QPushButton)
-from PyQt6.QtCore import Qt
+# from PyQt6.QtCore import Qt
 
-class MainWindow(QWidget): 
+class MW(QWidget): 
 
     def __init__(self): 
         super().__init__() 
-        self.initializeUI() 
+        self.init_ui() 
 
-    def initializeUI(self):
+    def init_ui(self):
         """Set up the application's GUI."""
-        self.setMaximumSize(310, 130)
+        self.setMaximumSize(300, 120)
         self.setWindowTitle("QLineEdit Example")
 
-        self.setUpMainWindow()
+        self.setup_main_wnd()
         self.show()
 
-    def setUpMainWindow(self):
+    def setup_main_wnd(self):
         """Create and arrange widgets in the main window."""
         QLabel("Please enter your name below.",
-               self).move(70, 10)
+               self).move(50, 10)
         name_label = QLabel("Name:", self)
-        name_label.move(20, 50) 
+        name_label.move(10, 50) 
 
         self.name_edit = QLineEdit(self)
         self.name_edit.resize(210, 20)
-        self.name_edit.move(70, 50) 
+        self.name_edit.move(80, 50)
+        self.name_edit.setStyleSheet("background-color: yellow; color: rgb(50,150,250)")
 
         clear_button = QPushButton("Clear", self)
-        clear_button.move(140, 90)
+        clear_button.move(100, 80)
         clear_button.clicked.connect(self.clearText)
 
         accept_button = QPushButton("OK", self)
-        accept_button.move(210, 90)        
+        accept_button.move(200, 80)        
         accept_button.clicked.connect(self.acceptText)
 
     def clearText(self):
@@ -57,5 +58,5 @@ class MainWindow(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = MainWindow()
+    wnd = MW()
     sys.exit(app.exec())
