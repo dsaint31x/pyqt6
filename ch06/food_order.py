@@ -98,6 +98,7 @@ class MainWindow(QWidget):
 
     def setUpMainWindow(self):
         """Create and arrange widgets in the main window."""
+        
         # Create tab bar, different tabs, and set object names
         self.tab_bar = QTabWidget()
 
@@ -316,7 +317,7 @@ class MainWindow(QWidget):
     def displayPizzaInOrder(self):
         """Collect the text from the radio buttons that are checked
         on pizza page. Display text in side widget."""
-        if self.crust_group.checkedButton():
+        if self.crust_group.checkedButton(): # exclusive이기 때문에 하나만 checked.
             text = self.crust_group.checkedButton().text()
             self.display_pizza_label.setText(text)
 
