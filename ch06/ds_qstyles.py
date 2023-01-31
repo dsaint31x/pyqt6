@@ -275,7 +275,7 @@ class MW (QWidget):
         
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    # app.setStyleSheet(style_sheet)
+    app.setStyleSheet(style_sheet)
     window = MW()
     sys.exit(app.exec())    
         
