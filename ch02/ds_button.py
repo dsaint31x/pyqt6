@@ -29,7 +29,7 @@ class MW(QWidget):
         self.init_ui()
         
     def init_ui(self):
-        """Set up the appliation's GUI"""
+        """Set up the application's GUI"""
         self.setFixedSize(250,250)
         self.setWindowTitle('QPushButton Example')
         self.setup_main_wnd()
