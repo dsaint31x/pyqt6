@@ -4,10 +4,21 @@
 # Import necessary modules.
 import sys, os
 
-from PyQt6.QtWidgets import (QApplication, QWidget, 
-                             QLabel, QPushButton)
-from PyQt6.QtGui import QFont,QIcon
-from PyQt6.QtCore import Qt,QSize
+try:
+    from PySide6.QtWidgets import (QApplication, QWidget, 
+                                QLabel, QPushButton)
+    from PySide6.QtGui import QFont,QIcon
+    from PySide6.QtCore import Qt,QSize
+except Exception as e:
+    pass
+
+try:
+    from PyQt6.QtWidgets import (QApplication, QWidget, 
+                                QLabel, QPushButton)
+    from PyQt6.QtGui import QFont,QIcon
+    from PyQt6.QtCore import Qt,QSize
+except Exception as e:
+    pass
 
 # ================================================
 # 주요 클래스 정의
