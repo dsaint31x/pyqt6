@@ -1,12 +1,24 @@
 # basic_window.py
 # Import necessary modules
 import sys
-# import PySide6.QtCore
-# from PySide6.QtWidgets import (QApplication, QWidget,
-#                                QLabel)
-import PyQt6.QtCore
-from PyQt6.QtWidgets import (QApplication, QWidget,
-                               QLabel)
+
+PYSIDE = True
+try:
+    import PySide6.QtCore
+    from PySide6.QtWidgets import (QApplication, QWidget,
+                                   QLabel)
+except Exception as e:
+    print(e)
+    PYSIDE = False
+
+PYQT = True
+try:
+    import PyQt6.QtCore
+    from PyQt6.QtWidgets import (QApplication, QWidget,
+                                QLabel)
+except Exception as e:
+    print(e)
+    PYQT = False
 
 class MW(QWidget):
     def __init__(self):
@@ -28,9 +40,12 @@ class MW(QWidget):
 
 # Run the program
 if __name__ == '__main__':
-    # print(PySide6.__version__)
-    # print(PySide6.QtCore.__version__)
-    print(PyQt6.QtCore.qVersion())
+    if PYSIDE:
+        print(PySide6.__version__)
+        print(PySide6.QtCore.__version__)
+    if PYQT:
+        print(PyQt6.QtCore.qVersion())
+
     app = QApplication(sys.argv)
     window = MW()
     sys.exit(app.exec())
