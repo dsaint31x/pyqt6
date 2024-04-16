@@ -1,12 +1,22 @@
 # basic_window.py
 # Import necessary modules
 import sys
-# import PySide6.QtCore
-# from PySide6.QtWidgets import (QApplication, QWidget,
-#                                QLabel)
-import PyQt6.QtCore
-from PyQt6.QtWidgets import (QApplication, QWidget,
-                               QLabel)
+
+PY_SIDE6 = True
+try:
+    import PySide6.QtCore
+    from PySide6.QtWidgets import (QApplication, QWidget,
+                                   QLabel)
+except:
+    PY_SIDE6 = False
+
+PYQT = True
+try:
+    import PyQt6.QtCore
+    from PyQt6.QtWidgets import (QApplication, QWidget,
+                                 QLabel)
+except:
+    PYQT6 = False
 
 class MW(QWidget):
     def __init__(self):
@@ -16,7 +26,7 @@ class MW(QWidget):
     def initializeUI(self):
         """set up the application."""
         self.setGeometry(200, 100, 400, 200)
-        self.setWindowTitle("Main Window in PyQt")
+        self.setWindowTitle("Main Window in PyQt or PySide. 한글.")
         self.setup_main_wnd()
         self.show() # Display the window on the screen
         
@@ -28,9 +38,12 @@ class MW(QWidget):
 
 # Run the program
 if __name__ == '__main__':
-    # print(PySide6.__version__)
-    # print(PySide6.QtCore.__version__)
-    print(PyQt6.QtCore.qVersion())
+    if PY_SIDE6:
+        print(PySide6.__version__)
+        print(PySide6.QtCore.__version__)
+    if PYQT6:
+        print(PyQt6.QtCore.qVersion())
+
     app = QApplication(sys.argv)
     window = MW()
     sys.exit(app.exec())
