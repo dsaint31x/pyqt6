@@ -2,21 +2,23 @@
 # Import necessary modules
 import sys
 
-PY_SIDE6 = True
+PYSIDE = True
 try:
     import PySide6.QtCore
     from PySide6.QtWidgets import (QApplication, QWidget,
                                    QLabel)
-except:
-    PY_SIDE6 = False
+except Exception as e:
+    print(e)
+    PYSIDE = False
 
 PYQT = True
 try:
     import PyQt6.QtCore
     from PyQt6.QtWidgets import (QApplication, QWidget,
                                  QLabel)
-except:
-    PYQT6 = False
+except Exception as e:
+    print(e)
+    PYQT = False
 
 class MW(QWidget):
     def __init__(self):
@@ -38,10 +40,10 @@ class MW(QWidget):
 
 # Run the program
 if __name__ == '__main__':
-    if PY_SIDE6:
+    if PYSIDE:
         print(PySide6.__version__)
         print(PySide6.QtCore.__version__)
-    if PYQT6:
+    if PYQT:
         print(PyQt6.QtCore.qVersion())
 
     app = QApplication(sys.argv)

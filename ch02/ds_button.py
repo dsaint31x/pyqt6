@@ -4,10 +4,21 @@
 # Import necessary modules.
 import sys, os
 
-from PyQt6.QtWidgets import (QApplication, QWidget, 
-                             QLabel, QPushButton)
-from PyQt6.QtGui import QFont,QIcon
-from PyQt6.QtCore import Qt,QSize
+try:
+    from PySide6.QtWidgets import (QApplication, QWidget, 
+                                QLabel, QPushButton)
+    from PySide6.QtGui import QFont,QIcon
+    from PySide6.QtCore import Qt,QSize
+except Exception as e:
+    pass
+
+try:
+    from PyQt6.QtWidgets import (QApplication, QWidget, 
+                                QLabel, QPushButton)
+    from PyQt6.QtGui import QFont,QIcon
+    from PyQt6.QtCore import Qt,QSize
+except Exception as e:
+    pass
 
 # ================================================
 # 주요 클래스 정의
@@ -18,7 +29,7 @@ class MW(QWidget):
         self.init_ui()
         
     def init_ui(self):
-        """Set up the appliation's GUI"""
+        """Set up the application's GUI"""
         self.setFixedSize(250,250)
         self.setWindowTitle('QPushButton Example')
         self.setup_main_wnd()
