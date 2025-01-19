@@ -1,4 +1,4 @@
-# basic_window.py
+# empty_window_ps.py
 # Import necessary modules
 import sys
 
@@ -24,8 +24,8 @@ class MW(QWidget):
     def __init__(self):
         """ Constructor for Empty Window Class """
         super().__init__()
-        self.initializeUI()
-    def initializeUI(self):
+        self.initialize_ui()
+    def initialize_ui(self):
         """set up the application."""
         self.setGeometry(200, 100, 400, 200)
         self.setWindowTitle("Main Window in PyQt or PySide. 한글.")
