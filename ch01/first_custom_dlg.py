@@ -1,5 +1,6 @@
 # first_custom_dlg.py
 
+# Import necessary modules
 import sys
 from PySide6.QtWidgets import ( QApplication,
     QDialog,
