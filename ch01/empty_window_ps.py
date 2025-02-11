@@ -5,20 +5,25 @@ import sys
 PYSIDE = True
 try:
     import PySide6.QtCore
-    from PySide6.QtWidgets import (QApplication, QWidget,
-                                   QLabel)
+    from PySide6.QtWidgets import (QApplication, 
+                                   QWidget, QMainWindow,
+                                   QLabel, QVBoxLayout,
+                                   )
 except Exception as e:
     print(e)
     PYSIDE = False
 
-PYQT = True
-try:
-    import PyQt6.QtCore
-    from PyQt6.QtWidgets import (QApplication, QWidget,
-                                 QLabel)
-except Exception as e:
-    print(e)
-    PYQT = False
+if not PYSIDE :
+    PYQT = True
+    try:
+        import PyQt6.QtCore
+        from PyQt6.QtWidgets import (QApplication, 
+                                    QWidget, QMainWindow,
+                                    QLabel, QVBoxLayout,
+                                    )
+    except Exception as e:
+        print(e)
+        PYQT = False
 
 class MW(QWidget):
     def __init__(self):
