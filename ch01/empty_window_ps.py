@@ -3,6 +3,8 @@
 import sys
 
 PYSIDE = True
+PYQT = False
+
 try:
     import PySide6.QtCore
     from PySide6.QtWidgets import (QApplication, 
