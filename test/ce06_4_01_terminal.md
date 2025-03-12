@@ -38,3 +38,4 @@ ms store에 가면, 기존의 `cmd`보다 훨씬 좋은 interface의 `terminal` 
 Linux의 경우, 그냥 terminal 위주라.. ==;;. macOS도 BSD를 기반으로 했기 때문에 역시 terminal을 제공한다.
 
 
+
