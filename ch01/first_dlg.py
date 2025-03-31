@@ -23,7 +23,8 @@ class MW(QMainWindow):
         print("click", s)
         dlg = QDialog(self) 
         dlg.setWindowTitle("QDialog Title") 
-        dlg.exec()
+        # dlg.exec()
+        dlg.open()
         
         # -------------
         # for custom dlg

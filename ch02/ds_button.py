@@ -4,21 +4,32 @@
 # Import necessary modules.
 import sys, os
 
+PYSIDE6_MODE = True
+PYQT_MODE = False
+
 try:
     from PySide6.QtWidgets import (QApplication, QWidget, 
                                 QLabel, QPushButton)
     from PySide6.QtGui import QFont,QIcon
     from PySide6.QtCore import Qt,QSize
 except Exception as e:
-    pass
+    print(f"PySide6 import failed: {e}")
+    PYSIDE6_MODE = False
+    PYQT_MODE = True
 
-try:
-    from PyQt6.QtWidgets import (QApplication, QWidget, 
-                                QLabel, QPushButton)
-    from PyQt6.QtGui import QFont,QIcon
-    from PyQt6.QtCore import Qt,QSize
-except Exception as e:
-    pass
+if not PYSIDE6_MODE:
+    try:
+        from PyQt6.QtWidgets import (QApplication, QWidget, 
+                                    QLabel, QPushButton)
+        from PyQt6.QtGui import QFont,QIcon
+        from PyQt6.QtCore import Qt,QSize
+    except Exception as e:
+        print(f"PyQt6 import failed: {e}")
+        PYQT_MODE = False
+
+if not PYSIDE6_MODE and not PYQT_MODE:
+    print("No availabe Qt Binding found! Plz install PySide6 or PyQt6.")
+    sys.exit(1)
 
 # ================================================
 # 주요 클래스 정의
@@ -30,7 +41,7 @@ class MW(QWidget):
         
     def init_ui(self):
         """Set up the application's GUI"""
-        self.setFixedSize(250,250)
+        #self.setFixedSize(250,250)
         self.setWindowTitle('QPushButton Example')
         self.setup_main_wnd()
         self.show()
@@ -38,14 +49,19 @@ class MW(QWidget):
     def setup_main_wnd(self):
         """Set up the Main Window"""
 
-        # hello_label = QLabel('Hello, World and Qt!',self) # 아래 두라인과 동일한 수행.
+        # self.hello_label = QLabel('Hello, World and Qt!',self) # 아래 두라인과 동일한 수행.
         self.hello_label = QLabel(self)
         self.hello_label.setText('Hello, World and Qt!')
         self.hello_label.setFont(QFont('Arial',15))
 
-        # 아래 두 줄을 주석해제하여 동작을 확인해 볼것.
-        # hello_label.setAlignment(Qt.AlignmentFlag.AlignCenter) 
-        # hello_label.setStyleSheet("background-color: yellow")
+        self.hello_label.resize(230,40)
+
+        # 아래 code line을 적절히 주석해제하여 동작을 확인해 볼것.
+        # self.hello_label.setAlignment(Qt.AlignmentFlag.AlignCenter) # PyQt 
+        # self.hello_label.setAlignment(Qt.AlignCenter)               # PySide6
+        # self.hello_label.setStyleSheet("background-color: yellow")  # both
+
+        # -----------------
         self.hello_label.move(10,20)
         
         path_py_file = os.path.realpath(__file__)
